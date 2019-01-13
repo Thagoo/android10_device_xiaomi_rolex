@@ -155,6 +155,12 @@ on boot
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
+    
+    # Legacy ril-daemon is now disabled by default
+    enable ril-daemon
+
+    # Start RIL daemon
+    start ril-daemon
 
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
