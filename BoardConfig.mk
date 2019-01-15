@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2018-2019 The LineageOS Project
+# Copyright (C) 2017-2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -149,9 +148,6 @@ BUILD_BROKEN_DUP_RULES := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
-
-# Lineage Hardware
-JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
 # Tap2Wake
 TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
