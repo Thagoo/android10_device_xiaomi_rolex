@@ -160,6 +160,17 @@ MALLOC_SVELTE := true
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
 
+#Omni Target
+TARGET_QCOM_DISPLAY_VARIANT := caf-msm8996
+TARGET_QCOM_AUDIO_VARIANT := caf-msm8996
+TARGET_QCOM_MEDIA_VARIANT := caf-msm8996
+TARGET_QCOM_BLUETOOTH_VARIANT := caf-msm8996
+
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/audio-$(TARGET_QCOM_AUDIO_VARIANT) \
+    hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT) \
+    hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 67108864
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -185,6 +196,7 @@ TARGET_HAS_NO_POWER_STATS := true
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_ADRENO := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
@@ -200,6 +212,7 @@ VENDOR_SECURITY_PATCH := 2019-10-05
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+include vendor/omni/sepolicy/sepolicy.mk
 
 # We modify several neverallows, so let the build proceed
 ifneq ($(TARGET_BUILD_VARIANT),user)
