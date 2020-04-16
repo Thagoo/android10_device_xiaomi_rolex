@@ -107,10 +107,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=0 \
     debug.cpurend.vsync=false \
-    debug.gralloc.gfx_ubwc_disable=0 \
-    debug.sdm.support_writeback=0 \
-    debug.composition.type=gpu \
-    debug.sf.disable_backpressure=1 \
+    persist.vendor.dpm.feature=1 \
+    ro.hardware.egl=adreno \
     debug.sf.hw=0 \
     debug.sf.latch_unsignaled=1 \
     debug.sf.recomputecrop=0 \
@@ -118,17 +116,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     persist.demo.hdmirotationlock=false \
     persist.hwc.enable_vds=1 \
+    debug.mdpcomp.logs=0 \
     persist.hwc.mdpcomp.enable=true \
+    sdm.debug.disable_skip_validate=1 \
     vendor.display.disable_rotator_split=1 \
     vendor.display.disable_skip_validate=1 \
-    vendor.display.perf_hint_window=50 \
     vendor.gralloc.enable_fb_ubwc=1 \
     debug.enable.sglscale=1
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \
-    persist.dbg.vt_avail_ovr=1
+    persist.dbg.vt_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1
 
 # IMS debug
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -176,8 +176,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.radio.multisim.config=dsds \
-    ro.telephony.default_network=9,1 \
+    ro.telephony.default_network=22,20 \
     ro.telephony.call_ring.multiple=false \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sib16_support=1 \
