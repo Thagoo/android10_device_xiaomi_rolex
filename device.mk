@@ -125,7 +125,9 @@ PRODUCT_PACKAGES += \
 
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
+    SystemUI \
+    TrebuchetQuickstep \
+    Launcher3Quickstep
 
 # Display
 PRODUCT_PACKAGES += \
