@@ -46,6 +46,10 @@ on fs
     mkdir /mnt/vendor/persist/time 0770 system system 
     setprop sys.usb.ffs.aio_compat 1
 
+on post-fs
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
+
 on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
@@ -117,17 +121,41 @@ on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
 
 service ppd /vendor/bin/mm-pp-dpps
-    class hal
+    class late_start
+    disabled
     user system
-    group system graphics
     socket pps stream 0660 system system
+    group system graphics
+
+on property:init.svc.surfaceflinger=stopped
+    stop ppd
+
+on property:init.svc.surfaceflinger=running
+    start ppd
 
 on property:init.svc.surfaceflinger=restarting
-    restart vendor.hwcomposer-2-1
+    stop ppd
+
+on property:init.svc.zygote=stopped
+    stop ppd
+
+on property:init.svc.zygote=running
+    start ppd
+
+on property:init.svc.zygote=restarting
+    stop ppd
+
+on boot
+    # enable sched boost in order to schedule tasks on perf cluster
+    write /proc/sys/kernel/sched_boost 1
 
 on charger
     setprop sys.usb.configfs 0
     start vendor.power_off_alarm
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    start thermal-engine
 
 service adsprpcd /vendor/bin/adsprpcd
     class main
@@ -151,12 +179,6 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.powerctl=*
     stop vendor.per_proxy
     stop vendor.ims_rtp_daemon
-
-on charger
-    write /sys/devices/system/cpu/cpu2/online 0
-    write /sys/devices/system/cpu/cpu3/online 0
-    write /sys/module/lpm_levels/parameters/sleep_disabled 0
-    start thermal-engine
 
 on property:sys.boot_completed=1
    # Enable ZRAM on boot_complete
