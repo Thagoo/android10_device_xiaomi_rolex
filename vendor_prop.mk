@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+# Apex
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.apex.updatable=false
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
