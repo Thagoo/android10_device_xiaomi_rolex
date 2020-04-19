@@ -2182,6 +2182,7 @@ case "$target" in
 
 		# Set zram parameters
 		configure_zram_parameters
+		echo lz4 > /sys/block/zram0/comp_algorithm
                 ;;
                 *)
                 ;;
