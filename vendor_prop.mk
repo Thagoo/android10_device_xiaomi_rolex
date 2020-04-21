@@ -52,7 +52,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=smd \
-    persist.vendor.btstack.enable.splita2dp=false
+    persist.vendor.btstack.enable.splita2dp=false \
+    ro.bluetooth.library_name=libbluetooth.so
 
 # Boot
 PRODUCT_PROPERTY_OVERRIDES += \

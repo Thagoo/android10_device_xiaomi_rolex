@@ -22,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
 # Get the prebuilt list of APNs
 $(call inherit-product, vendor/omni/config/gsm.mk)
-
+include device/qcom/common/common.mk
 # Inherit some common Omni stuff
 $(call inherit-product, vendor/omni/config/common.mk)
 
