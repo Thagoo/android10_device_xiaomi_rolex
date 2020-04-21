@@ -2153,7 +2153,7 @@ case "$target" in
                 echo 0 > /sys/module/msm_thermal/core_control/enabled
 
                     # Enable EAS sched
-                    8917_sched_dcvs_eas
+                    8917_sched_dcvs_hmp
                 echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
                 # re-enable thermal core_control now
                 echo 1 > /sys/module/msm_thermal/core_control/enabled
