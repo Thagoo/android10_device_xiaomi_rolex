@@ -2150,8 +2150,15 @@ case "$target" in
                 # disable thermal core_control to update interactive gov settings
                 echo 0 > /sys/module/msm_thermal/core_control/enabled
 
-                    # Enable EAS sched
+                KernelVersionStr=`cat /proc/sys/kernel/osrelease`
+                KernelVersionS=${KernelVersionStr:2:2}
+                KernelVersionA=${KernelVersionStr:0:1}
+                KernelVersionB=${KernelVersionS%.*}
+                if [ $KernelVersionA -ge 4 ] && [ $KernelVersionB -ge 9 ]; then
                     8917_sched_dcvs_eas
+                else
+                    8917_sched_dcvs_hmp
+                fi
                 echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
                 # re-enable thermal core_control now
                 echo 1 > /sys/module/msm_thermal/core_control/enabled
