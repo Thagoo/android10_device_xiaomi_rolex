@@ -1,0 +1,7 @@
+# ril service
+type qcom-c_main-sh, domain;
+type qcom-c_main-sh_exec, exec_type, file_type;
+
+init_daemon_domain(qcom-c_main-sh)
+# Set ctl.qmuxd property.
+set_prop(qcom-c_main-sh, ctl_qmuxd_prop)

@@ -373,7 +373,8 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.sh \
-    init.qcom.usb.sh
+    init.qcom.usb.sh \
+    init.class_main.sh
 
 # RenderScript
 PRODUCT_PACKAGES += \
