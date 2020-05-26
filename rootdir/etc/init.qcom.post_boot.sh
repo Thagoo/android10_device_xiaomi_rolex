@@ -261,6 +261,9 @@ function 8917_sched_dcvs_hmp()
     echo 1 > /sys/devices/system/cpu/cpufreq/interactive/use_migration_notif
     echo 50000 > /proc/sys/kernel/sched_freq_inc_notify
     echo 50000 > /proc/sys/kernel/sched_freq_dec_notify
+    # cpuset settings
+    echo 0-3 > /dev/cpuset/background/cpus
+    echo 0-3 > /dev/cpuset/system-background/cpus
 }
 
 function 8937_sched_dcvs_hmp()
@@ -340,12 +343,21 @@ function configure_zram_parameters() {
     # Zram disk - 75% for Go devices.
     # For 512MB Go device, size = 384MB, set same for Non-Go.
     # For 1GB Go device, size = 768MB, set same for Non-Go.
-    # For >=2GB Non-Go devices, size = 50% of RAM size. Limit the size to 4GB.
+    # For 2GB Go device, size = 1536MB, set same for Non-Go.
+    # For >2GB Non-Go devices, size = 50% of RAM size. Limit the size to 4GB.
     # And enable lz4 zram compression for Go targets.
 
     RamSizeGB=`echo "($MemTotal / 1048576 ) + 1" | bc`
-    zRamSizeBytes=`echo "$RamSizeGB * 1024 * 1024 * 1024 / 2" | bc`
-    if [ $zRamSizeBytes -gt 4294967296 ]; then
+    if [ $RamSizeGB -le 2 ]; then
+        zRamSizeBytes=`echo "$RamSizeGB * 1024 * 1024 * 1024 * 3 / 4" | bc`
+        zRamSizeMB=`echo "$RamSizeGB * 1024 * 3 / 4" | bc`
+    else
+        zRamSizeBytes=`echo "$RamSizeGB * 1024 * 1024 * 1024 / 2" | bc`
+        zRamSizeMB=`echo "$RamSizeGB * 1024 / 2" | bc`
+    fi
+
+    # use MB avoid 32 bit overflow
+    if [ $zRamSizeMB -gt 4096 ]; then
         zRamSizeBytes=4294967296
     fi
 
@@ -355,13 +367,7 @@ function configure_zram_parameters() {
         if [ -f /sys/block/zram0/use_dedup ]; then
             echo 1 > /sys/block/zram0/use_dedup
         fi
-        if [ $MemTotal -le 524288 ]; then
-            echo 402653184 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 1048576 ]; then
-            echo 805306368 > /sys/block/zram0/disksize
-        else
-            echo $zRamSizeBytes > /sys/block/zram0/disksize
-        fi
+        echo $zRamSizeBytes > /sys/block/zram0/disksize
 
         # ZRAM may use more memory than it saves if SLAB_STORE_USER
         # debug option is enabled.
@@ -457,11 +463,9 @@ if [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] ; then
       configure_read_ahead_kb_values
 else
     arch_type=`uname -m`
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
 
     # Set parameters for 32-bit Go targets.
-    if [ $MemTotal -le 1048576 ] && [ "$low_ram" == "true" ]; then
+    if [ "$low_ram" == "true" ]; then
         # Disable KLMK, ALMK, PPR & Core Control for Go devices
         echo 0 > /sys/module/lowmemorykiller/parameters/enable_lmk
         echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
@@ -2150,8 +2154,15 @@ case "$target" in
                 # disable thermal core_control to update interactive gov settings
                 echo 0 > /sys/module/msm_thermal/core_control/enabled
 
-                    # Enable EAS sched
+                KernelVersionStr=`cat /proc/sys/kernel/osrelease`
+                KernelVersionS=${KernelVersionStr:2:2}
+                KernelVersionA=${KernelVersionStr:0:1}
+                KernelVersionB=${KernelVersionS%.*}
+                if [ $KernelVersionA -ge 4 ] && [ $KernelVersionB -ge 9 ]; then
                     8917_sched_dcvs_eas
+                else
+                    8917_sched_dcvs_hmp
+                fi
                 echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
                 # re-enable thermal core_control now
                 echo 1 > /sys/module/msm_thermal/core_control/enabled
@@ -3453,6 +3464,9 @@ case "$target" in
     echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
     echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
     echo 650000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/rtg_boost_freq
+    # configure input boost settings
+    echo "0:1017600" > /sys/devices/system/cpu/cpu_boost/input_boost_freq
+    echo 80 > /sys/devices/system/cpu/cpu_boost/input_boost_ms
 
     # configure governor settings for gold cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor

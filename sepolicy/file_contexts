@@ -1,5 +1,5 @@
 # Binaries
-/system/bin/chargeonlymode            u:object_r:charger_exec:s0
+/system/bin/charger            u:object_r:charger_exec:s0
 
 # Bluetooth
 /(vendor|system/vendor)/bin/hci_qcomm_init      u:object_r:bluetooth_loader_exec:s0
@@ -23,3 +23,6 @@
 /firmware(/.*)?            u:object_r:firmware_file:s0
 /dsp(/.*)?            u:object_r:dsp_file:s0
 /persist(/.*)?            u:object_r:persist_file:s0
+
+# Ril daemon
+/vendor/bin/qcom-c_main-sh   u:object_r:qcom-c_main-sh_exec:s0
