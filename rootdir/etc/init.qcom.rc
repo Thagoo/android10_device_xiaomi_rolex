@@ -152,6 +152,11 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
+
+    start vendor.ril-daemon2
+
+    start qcom-c_main-sh
+
     mkdir /data/vendor/misc 01771 system system
 
     # Create directory used by display clients
@@ -285,6 +290,7 @@ service qcom-c_main-sh /vendor/bin/init.class_main.sh
     class main
     user root
     group root system
+    disabled
     oneshot
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
