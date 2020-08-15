@@ -155,7 +155,8 @@ on charger
     start vendor.power_off_alarm
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
-    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    write /sys/module/lpm_levels/parameters/sleep_disabled N
+    write /sys/devices/soc/7824900.sdhci/hibern8_on_idle_enable 1
     start thermal-engine
 
 service adsprpcd /vendor/bin/adsprpcd
