@@ -241,55 +241,55 @@ vendor/lib64/vendor.qti.gnss@2.1.so|79d924c8006b33b358bf9e3d9a21ff2fe8a937df
 vendor/lib64/vendor.qti.gnss@3.0-service.so|53f5c24b57a3157b6b48fc56e6ab67b70ed8fa48
 vendor/lib64/vendor.qti.gnss@3.0.so|48b718e175dbf6156ded10a056a47d4988319395
 
-# Graphics - from PAN_sprout-10
+# Graphics - from Olive-10
 vendor/lib/egl/eglSubDriverAndroid.so|4c18b6f1ecb48c2af6e160c2cc4749974f9fa04b
 vendor/lib/egl/libEGL_adreno.so|7922a3ab0ceb8ed5baf8b4a00b894c79464329bc
-vendor/lib/egl/libGLESv1_CM_adreno.so|027a5aeaabfadf4091be9323b60a3210c7a66652
-vendor/lib/egl/libGLESv2_adreno.so|8517c72cd5f5df98b15fa9b779d92c2af9628afe
-vendor/lib/egl/libq3dtools_adreno.so|64a6b279a034b4a7d862518dcd61328507858c76
+vendor/lib/egl/libGLESv1_CM_adreno.so|874195cec86c1288eb86852bd704e4892fdcac5a
+vendor/lib/egl/libGLESv2_adreno.so|0441f07303b317771a3af5422ffaf16d70d2a6fc
+vendor/lib/egl/libq3dtools_adreno.so|f44b7dba9fba35fc5e38c1e2e2f4f8297d23d704
 vendor/lib/egl/libq3dtools_esx.so|b55e3c1d9b090db873a690ea7c71edcfafb9e513
 vendor/lib/egl/libQTapGLES.so|dba7fbf2fc3cda65a743fa2de663c713dc1011b1
-vendor/lib/libadreno_utils.so|55129bcbeb6963e40f3fefb9e0164fca2eaa08eb
+vendor/lib/libadreno_utils.so|5c30a68f7a0021fff755a855aa51b4dc3adca532
 vendor/lib/libbccQTI.so|3e0f6963938b63ff8c10921462410a09e6dea5c2
 vendor/lib/libC2D2.so|d9209c6bbc27f9186181cec2153a20da0de68e51
 vendor/lib/libc2d30-a3xx.so|1917e41d4178974edf33cab3958f842ac9fb03fc
 vendor/lib/libc2d30_bltlib.so|05b11e803d758ed0b52567d0e8a0e4b68a768405
-vendor/lib/libCB.so|517f1b43211f15258e1f1e6d2e6628106dbf05c1
+vendor/lib/libCB.so|4a4edc50f9e556f153045d0ad483a575c2664676
 vendor/lib/libEGL_adreno.so|31e44fac035da19ac261de63e0edf186132b24ff
-vendor/lib/libgsl.so|6c7ed60e68ee41908e06170a01cd5694eb677152
+vendor/lib/libgsl.so|3eadcac4b5c46997f5eb0e4c16178821fd92e0e1
 vendor/lib/libllvm-glnext.so|6276a338ea8c29e404209341ef3faae3e53525bf
 vendor/lib/libllvm-qcom.so|10c3c11993e28ab89d7b1eb4a0aec95157fbd622
-vendor/lib/libOpenCL.so|ba21b66d9caa078c529cc497482018fbffce54af
+vendor/lib/libOpenCL.so|d340dec21751ba021c2984166f526279ca96380c
 vendor/lib/libpvr.so|610345dec4e7d865f5a8c22eea98de539eea0daa
 vendor/lib/libq3dtools_adreno.so|8d86f17059c210ab15a57ac9c648da1311ae35a1
 vendor/lib/libRSDriver_adreno.so|e555f9ac4bb1b09531593a0b977bfd3164ca911c
-vendor/lib/librs_adreno.so|5242c974a6bf83759cf042f9e4075bcd24ebc5af
-vendor/lib/librs_adreno_sha1.so|f046c0971f1afa2b2de50554d7a53596b446abf0
+vendor/lib/librs_adreno.so|2994b79189a88d8ad59fe72ead32d2d17adfbc75
+vendor/lib/librs_adreno_sha1.so|8928434d315171de82bec0e744d5dfd35d3dd153
 vendor/lib/libsdm-disp-apis.so|5b006423286008ba9b54b8c29e9ce2ab4b6fa14d
 vendor/lib64/egl/eglSubDriverAndroid.so|a760aed4283dbbf0b4584e49e3b8d2b659977fba
 vendor/lib64/egl/libEGL_adreno.so|028b973e22c117821f1d9b32ab6e9c4429192d60
-vendor/lib64/egl/libGLESv1_CM_adreno.so|140762b69288094adebd9b59d914be80e6726ce2
-vendor/lib64/egl/libGLESv2_adreno.so|f099dbbe9bac09d922b8f1900da09dc03a60e58e
-vendor/lib64/egl/libq3dtools_adreno.so|8d574ba29633ef45306f6e0aeaf09181e569812a
+vendor/lib64/egl/libGLESv1_CM_adreno.so|501c7b38d921847cea1e74d192d92bd7ee2eb564
+vendor/lib64/egl/libGLESv2_adreno.so|0b11ad12dfad558589706d3b66729685bf4bccc9
+vendor/lib64/egl/libq3dtools_adreno.so|07ce262e39ac548d76a8802c5f13e6b7b951dd9e
 vendor/lib64/egl/libq3dtools_esx.so|0a4927e0a3de3edf4feb3c3974c844d77b9711fb
 vendor/lib64/egl/libQTapGLES.so|9ac32590bdb898a526ef1dd6667ae1c4581349ec
-vendor/lib64/libadreno_utils.so|13f2bfe976ab85d6672ff240a175020f807bac36
+vendor/lib64/libadreno_utils.so|7565d5feb1d3daf7447cbc845cb64a0028c90003
 vendor/lib64/libbccQTI.so|65102dd4f4c9df11f30f0f6d72f7c021799f7017
 vendor/lib64/libC2D2.so|c925fc9b50e5060b8115fca49bee7fc6b8166425
 vendor/lib64/libc2d30-a3xx.so|5a2223888f609c4167fa2595e7d6a5062fe1a2c1
 vendor/lib64/libc2d30_bltlib.so|52426726a512ea4562d7431efbe06bd555542429
-vendor/lib64/libCB.so|f922c75325557710861915a9ecd13ca4b0ee0219
+vendor/lib64/libCB.so|61327580013dbb5e19cab6f297be0aacc360c2e7
 vendor/lib64/libEGL_adreno.so|31e44fac035da19ac261de63e0edf186132b24ff
-vendor/lib64/libgsl.so|aa70bab98eaeb1fcd50b75c6d862fe8fa568f79a
+vendor/lib64/libgsl.so|34e20a8fc6f1b437d514c2044cda78bc5fcfb7d3
 vendor/lib64/libhdr_tm.so|208637299f17b43013b88f5e5538c562b54ad644
 vendor/lib64/libllvm-glnext.so|5f8b990afd8fc7349a4ba67c08eb4eb45ec0a7e2
 vendor/lib64/libllvm-qcom.so|4de0f68c070718efbec8b77d6e3415703ce07407
-vendor/lib64/libOpenCL.so|0dfd7eab729d57fbc8b3214dda04f0a4b198e0b4
+vendor/lib64/libOpenCL.so|ab00df56fb26d527c69e008517fa98497ea74933
 vendor/lib64/libpvr.so|b829695c18d6c1e67cae70214765c964fe5bc722
 vendor/lib64/libq3dtools_adreno.so|8d86f17059c210ab15a57ac9c648da1311ae35a1
 vendor/lib64/libRSDriver_adreno.so|b99881652fe54294f59925e5eab185c16b4da511
-vendor/lib64/librs_adreno.so|c60de02ed47887f1e7e64f67ec40429ac5286e66
-vendor/lib64/librs_adreno_sha1.so|be719469df5eb176952a21bce42c98537fcbfcb3
+vendor/lib64/librs_adreno.so|42a344f20a4294e00664581914cd3225802daf57
+vendor/lib64/librs_adreno_sha1.so|edf252efad2d262c58ae4216d5d40ceb0bda2bff
 
 # Graphics (HDR) - from PAN_sprout-10
 vendor/lib/libhdr_tm.so|f1d9566f7c6bb92521b86fcbd03b76b1375b3d15
@@ -318,18 +318,18 @@ vendor/lib64/vendor.display.color@1.1.so|1bf7a370a1c3e277c919916d57197c13543c39a
 vendor/lib64/vendor.display.color@1.2.so|2206d547c080c598d0920bf0ef623aa9cc5d8970
 vendor/lib64/vendor.display.postproc@1.0.so|1951ffdfe78ed310597de9f9dc3e1bb36bd29406
 
-# Graphics (SDM) - from PAN_sprout-10
+# Graphics (SDM) - from Olive-10
 vendor/lib/libscalar.so|5793dfa5d29a20e123de2afb2691713f5cb75c74
 vendor/lib/libsdm-color.so|4dc7a8c90521c45b3e25623985cf4486e6fb7b57
 vendor/lib/libsdm-diag.so|6b8ddfbf870f329ca9e9fb50c3e9cb1a54bbb6ab
 -vendor/lib/libsdm-disp-vndapis.so|5b5ab2404541a8e3fd97a4e600bc34e7f3e2e56c
-vendor/lib/libsdmextension.so|8857f44a89091689518d28f2f1285b5de990ece1
+vendor/lib/libsdmextension.so|a6d8b00d514f434f0f973dacf406956bfea681ef
 vendor/lib/libtinyxml2_1.so|58932a10e8e410dc7b263bc36b5c89e37623059a
 vendor/lib64/libscalar.so|43cb8279a855796d26dedb41efcb0f16b6ad7394
 vendor/lib64/libsdm-color.so|f465d382260baed2d2f326ca663e03cccd73a0b7
 vendor/lib64/libsdm-diag.so|4ec7f55fd8a4a1a316282be57e1d5c1a3a20660d
 -vendor/lib64/libsdm-disp-vndapis.so|b04cd604137e52f4f9bb372db01884106da9834a
-vendor/lib64/libsdmextension.so|63e540b5cf7fb8d52aeee2e24be3012bfdc51fe7
+vendor/lib64/libsdmextension.so|3d0727b1a95e5691033c151d888b719a687fdba7
 vendor/lib64/libtinyxml2_1.so|5eaa71107c3ac981774b523a761246aa18a6a5cf
 
 # IMS - from tissot - PKQ1.180917.001.V10.0.4.0.PDHMIXM
