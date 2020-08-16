@@ -153,7 +153,10 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libjni_livedisplay \
     libtinyxml \
-    memtrack.msm8937
+    memtrack.msm8937 \
+    libgui \
+    libgui_vendor \
+    libstdc++
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
