@@ -1,1 +1,3 @@
-allow dpmd self:capability dac_override;
+type lirc_device, dev_type;
+allow dpmd device:file { open write };
+allow dpmd vendor_file:file { execute getattr open read };

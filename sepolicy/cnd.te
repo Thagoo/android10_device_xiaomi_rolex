@@ -1,0 +1,3 @@
+#============= cnd ==============
+allow cnd self:socket ioctl;
+allow cnd sysfs:file { open read };
