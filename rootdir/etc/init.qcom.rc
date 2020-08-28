@@ -71,6 +71,10 @@ on early-boot
     chown system system /mnt/vendor/persist/sensors/registry/config
     chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
 
+    # Key disabler
+    chown system system /proc/touchpanel/capacitive_keys_disable
+    chmod 660 /proc/touchpanel/capacitive_keys_disable
+
     # SSR setup
     write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
     write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
